@@ -1,11 +1,18 @@
 // Enemies our player must avoid
 var Enemy = function() {
+    constructor (x.y) {
+        this.x =0;
+        this.y = (getRandomSpeed()*60);
+        this.weight= 50;
+        this.height= 50;
+        this.sprite = 'images/enemy-bug.png';
+    }
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
+    
 };
 
 // Update the enemy's position, required method for game
