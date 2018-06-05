@@ -2,9 +2,10 @@
 var Enemy = function() {
     constructor (x.y) {
         this.x =0;
-        this.y = (getRandomSpeed()*60);
+        this.y =0;
         this.weight= 50;
         this.height= 50;
+        this.speed= (getRandomSpeed()*60)
         this.sprite = 'images/enemy-bug.png';
     }
     // Variables applied to each of our instances go here,
@@ -18,14 +19,25 @@ var Enemy = function() {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+
+    this.x = this.x + (this.speed*dt);
+    if( this.x > 500) {
+        this.x = -100;
+    };
+
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-};
+}
+
+
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
+    var numbers = Math.floor(Math.random)*3) + 1;
+    return numbers;
 };
 
 // Now write your own player class
