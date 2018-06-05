@@ -1,12 +1,10 @@
 // Enemies our player must avoid
 var Enemy = function() {
-    constructor (x.y) {
-        this.x =0;
-        this.y =0;
-        this.weight= 50;
-        this.height= 50;
-        this.speed= (getRandomSpeed()*60)
-        this.sprite = 'images/enemy-bug.png';
+    constructor (sprite,x,y, speed) {
+        this.x =x; // coordinate
+        this.y =y; // coordinate
+        this.speed = speed; //moving speed
+        this.sprite = 'images/enemy-bug.png'; //enemy image
     }
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -18,19 +16,29 @@ var Enemy = function() {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+update(dt) {
+
+    // You should multiply any movement by the dt parameter
+    // which will ensure the game runs at the same speed for
+    // all computers.
 
     this.x = this.x + (this.speed*dt);
     if( this.x > 500) {
         this.x = -100;
     };
+ }
 
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+checkCollision() {
+    // checks if the player entes in collision with enemy
+    if (this.x === player.x & this.y === player.y) {
+        // moves the player back to it's start position
+        player.x = 250;
+        player.y = 498;
+        // deletes one life
+        life --;
+        livesCount();
+    };
 }
-
-
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
