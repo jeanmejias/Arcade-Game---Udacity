@@ -97,9 +97,32 @@ handleInput() {
         case 40: if (this.x <= 415 {
             this.y = this.y -83;
                 }; // moves the player down if it doesn't cross the canvas margin     
-    };
-}
+        };
+    }
 };
+//colectable item class
+class colectable {
+    constructor (x,y) {
+        this.sprite = 'Gem Green.png';
+        this.x = x;
+        this.y = y;
+    }
+
+    //sets a random position for the colectable 
+    randomPosition () {
+        // sets a random x position
+        const minX = 0;
+        const maxX = 404;
+        this.x = Math.floor(Math.random() * (maxX - minX + 10)) + minX;
+        //sets a random Y position
+        const minY = 83;
+        const maxY = 415;
+        this.y = Math.floor(Math.random() * (maxY - minY + 10)) + minY;
+    }
+}
+
+
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
