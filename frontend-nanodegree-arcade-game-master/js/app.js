@@ -126,14 +126,21 @@ class colectable {
     }
 };
 
-
-
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+
+let enemy1 = new Enemy('images/enemy1.png', 120, 84, 3);
+let enemy2 = new Enemy('images/enemy2.png', 280, 167, 2);
+let enemy3 = new Enemy('images/enemy3.png', 0, 250, 5);
+let allEnemies = ['enemy1', 'enemy2', 'enemy3'];
+
+
 // Place the player object in a variable called player
 
+let player = new Player('char.png', 250, 498);
 
+// Place the colectable object in a variable called colectable
+let colectable = new Colectable();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
