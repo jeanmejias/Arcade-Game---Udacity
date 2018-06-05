@@ -119,7 +119,12 @@ class colectable {
         const maxY = 415;
         this.y = Math.floor(Math.random() * (maxY - minY + 10)) + minY;
     }
-}
+
+    //Draws the colectable on the sxreen 
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+};
 
 
 
