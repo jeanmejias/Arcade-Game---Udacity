@@ -41,14 +41,19 @@ checkCollision() {
 }
 
 // Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
+render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-
-    var numbers = Math.floor(Math.random)*3) + 1;
-    return numbers;
 };
 
 // Now write your own player class
+
+class Player {
+    constructor (sprite,x,y) {
+        this.sprite = sprite;
+        this.x = x;
+        this.y = y;
+    }
+}
 // This class requires an update(), render() and
 // a handleInput() method.
 
