@@ -1,18 +1,17 @@
 // Enemies our player must avoid
 var Enemy = function() {
-    constructor (sprite,x,y, speed) {
+        constructor (sprite,x,y, speed) {
+            // Variables applied to each of our instances go here,
+            // we've provided one for you to get started
+            // The image/sprite for our enemies, this uses
+            // a helper we've provided to easily load images
+
         this.x =x; // coordinate
         this.y =y; // coordinate
         this.speed = speed; //moving speed
         this.sprite = 'images/enemy-bug.png'; //enemy image
     }
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    
-};
+      
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -99,6 +98,7 @@ handleInput() {
             this.y = this.y -83;
                 }; // moves the player down if it doesn't cross the canvas margin     
     };
+}
 };
 
 // Now instantiate your objects.
