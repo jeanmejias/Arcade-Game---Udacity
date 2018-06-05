@@ -56,7 +56,25 @@ class Player {
 }
 // This class requires an update(), render() and
 // a handleInput() method.
-
+update(dt) {
+    // if the player enters in collision with the colectable item
+    if (this.x === colectable.x & this.y === colectable.y) {
+        this.sprite = 'Gem Blue.png'; 
+        //moves the colectable item outside of the canvas
+        colectable.x = -101;
+        colectable.y = -83;
+    };
+    // checks if the player reaches the mountain
+    if (this.y <= 83) {
+        //checks if the player has the colectable item
+        if (this.sprite ==='Gem Blue.png') {
+            achornCount(); // calls the colectable counter
+            this.sprite = 'images/enemy-bug.png';
+        };
+        this.y = 498; 
+        colectable.randomPosition();
+    };
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
