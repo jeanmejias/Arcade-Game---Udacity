@@ -1,16 +1,16 @@
 // Enemies our player must avoid
-var Enemy = function() {
-        constructor (sprite, x, y, speed) {
+class Enemy {
+        constructor(sprite, x, y, speed) {
             // Variables applied to each of our instances go here,
             // we've provided one for you to get started
             // The image/sprite for our enemies, this uses
             // a helper we've provided to easily load images
            
-         this.sprite = sprite; //enemy image
+        this.sprite = sprite; //enemy image
         this.x =x; // coordinate
         this.y =y; // coordinate
         this.speed = speed; //moving speed
-    }
+    };
       
 
 // Update the enemy's position, required method for game
@@ -54,7 +54,7 @@ class Player {
         this.x = x;
         this.y = y;
     }
-}
+
 // This class requires an update(), render() and
 // a handleInput() method.
 update(dt) {
@@ -105,13 +105,13 @@ handleInput() {
 //colectable item class
 class colectable {
     constructor (x,y) {
-        this.sprite = 'Gem Green.png';
+        this.sprite = 'images/Gem Green.png';
         this.x = x;
         this.y = y;
     }
 
     //sets a random position for the colectable 
-    randomPosition () {
+    randomPosition() {
         // sets a random x position
         const minX = 0;
         const maxX = 404;
