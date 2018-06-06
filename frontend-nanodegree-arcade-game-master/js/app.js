@@ -1,15 +1,15 @@
 // Enemies our player must avoid
 var Enemy = function() {
-        constructor (sprite,x,y, speed) {
+        constructor (sprite, x, y, speed) {
             // Variables applied to each of our instances go here,
             // we've provided one for you to get started
             // The image/sprite for our enemies, this uses
             // a helper we've provided to easily load images
-
+           
+         this.sprite = sprite; //enemy image
         this.x =x; // coordinate
         this.y =y; // coordinate
         this.speed = speed; //moving speed
-        this.sprite = 'images/enemy-bug.png'; //enemy image
     }
       
 
@@ -33,6 +33,8 @@ checkCollision() {
         // moves the player back to it's start position
         player.x = 250;
         player.y = 498;
+        // changes the player image
+        player.sprite = 'images/char-boy.png';
         // deletes one life
         life --;
         livesCount();
@@ -42,12 +44,12 @@ checkCollision() {
 // Draw the enemy on the screen, required method for game
 render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
 };
-
 // Now write your own player class
 
 class Player {
-    constructor (sprite,x,y) {
+    constructor (sprite, x, y) {
         this.sprite = sprite;
         this.x = x;
         this.y = y;
@@ -129,15 +131,15 @@ class colectable {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 
-let enemy1 = new Enemy('images/enemy1.png', 120, 84, 3);
-let enemy2 = new Enemy('images/enemy2.png', 280, 167, 2);
-let enemy3 = new Enemy('images/enemy3.png', 0, 250, 5);
+let enemy1 = new Enemy('images/enemy-bug.png', 120, 84, 3);
+let enemy2 = new Enemy('images/enemy-bug.png', 280, 167, 2);
+let enemy3 = new Enemy('images/enemy-bug.png', 0, 250, 5);
 let allEnemies = ['enemy1', 'enemy2', 'enemy3'];
 
 
 // Place the player object in a variable called player
 
-let player = new Player('char.png', 250, 498);
+let player = new Player('images/char-boy.png', 250, 498);
 
 // Place the colectable object in a variable called colectable
 let colectable = new Colectable();
