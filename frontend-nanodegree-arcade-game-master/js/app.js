@@ -57,7 +57,7 @@ update(dt) {
         // checks if the player reaches the mountain
     if (this.y <= 83) {
     }
-}
+};
 
  //draws the player on the screen
 render() {
@@ -67,25 +67,26 @@ render() {
 handleInput() {
     // checks which key was pressed moves the player 
     switch ( allowedKeys [e.keyCode]) {
-        case 37: if (this.x >=101){
+        case 37: if (this.x >=101) {
                     this.x = this.x -101;
                      } // moves the player to the left if it doesn't cross the canvas margin 
          break; 
            
-        case 38: if (this.x <= 83 {
+        case 38: if (this.x <= 83) {
                 this.x = this.y -83;
                     } // moves the player up if it doesn't cross the canvas margin
         break;
-        case 39: if (this.x <= 404 {
+        case 39: if (this.x <= 404) {
             this.x = this.x + 101;
                 } // moves the player to the right if it doesn't cross the canvas margin
         break;
-        case 40: if (this.x <= 415 {
+        case 40: if (this.x <= 415) {
             this.y = this.y -83;
                 } // moves the player down if it doesn't cross the canvas margin     
         }
     }
 };
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 
