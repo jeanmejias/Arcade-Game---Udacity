@@ -17,7 +17,7 @@ Learning project for Udacity Front-End Nanodegree
 
 HOW TO RUN THE GAME:
 
-To run the game you just open the index.html file or visit this page:
+To run the game you just open the index.html file or visit this page: https://jeanmejias.github.io/Arcade-Game---Udacity/.
 IMPORTANT: For now the game can be played only on devices with keyboard.
 
 HOW TO PLAY THE GAME:
