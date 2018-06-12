@@ -1,17 +1,21 @@
 
 // Enemies our player must avoid
 class Enemy {
-        constructor(sprite, x, y, speed) {
+        constructor(x, y,) {
             // Variables applied to each of our instances go here,
             // we've provided one for you to get started
             // The image/sprite for our enemies, this uses
             // a helper we've provided to easily load images
            
-        this.sprite = 'images/enemy-bug.png'; //enemy imagem
-        this.x = x; // coordinate
-        this.y = y; // coordinate
-        this.speed = speed; //moving speed
-    };
+            this.sprite = 'images/enemy-bug.png';
+            this.dt = 0;
+            this.y = y;
+            this.x = x;
+            this.speed = getRandomArbitrary(100,250);
+            this.width = 50;
+            this.height = 50;
+        }
+    
       
 
 // Update the enemy's position, required method for game
@@ -64,28 +68,36 @@ render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-handleInput() {
-    
-    // checks which key was pressed moves the player 
-        switch ( allowedKeys [e.keyCode]) {
-        case 37: if (this.x >= 101) {
-                    this.x = this.x -101;
-                     } // moves the player to the left if it doesn't cross the canvas margin 
-         break; 
-        case 38: if (this.y >= 83) {
-                this.y = this.y -83;
-                    } // moves the player up if it doesn't cross the canvas margin
-        break;
-        case 39: if (this.x <= 404) {
-            this.x = this.x + 101;
-                } // moves the player to the right if it doesn't cross the canvas margin
-        break;
-        case 40: if (this.y <= 415) {
-            this.y = this.y -83;
-                } // moves the player down if it doesn't cross the canvas margin     
-        };
+handleInput (keyvalue) {
+    switch (keyvalue) {
+        case 'left' : 
+            this.x -= 101;
+            if (this.x < 1) {
+                this.x = 1;
+            }
+            break;
+        case 'up' :
+            this.y -= 83;
+            if (this.y <= 1) {
+                this.y = 1;
+            }
+            break;
+        case 'right' :
+            this.x += 101;
+            if (this.x > 405) {
+                this.x = 405;
+            }
+            break;
+        case 'down' : 
+            this.y += 83;
+            if (this.y >= 416) {
+                this.y = 416;
+            }
+            break;
     }
-};
+
+}
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
