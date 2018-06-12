@@ -109,21 +109,19 @@ class Player {
     }
 
 }
+// Place the player object in a variable called player
 let player = new Player('images/char-boy.png',200,300);
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-
 let enemy1 = new Enemy(-90, 60);
 let enemy2 = new Enemy(-190, 140);
 let enemy3 = new Enemy(-290, 230);
-let allEnemies = [enemy1, enemy2, enemy3];
-
-
-// Place the player object in a variable called player
-
-let player = new Player('images/char-boy.png', 200, 400);
+let enemy4 = new Enemy(-390, 140);
+let enemy5 = new Enemy(-490, 60);
+let enemy6 = new Enemy(-890, 230);
+let allEnemies = [enemy1,enemy2,enemy3,enemy4,enemy5,enemy6]; 
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
