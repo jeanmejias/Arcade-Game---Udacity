@@ -26,19 +26,12 @@ update(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 
-    this.x = this.x + (this.speed*dt);
-    if( this.x > 500) {
-        this.x = -100;
-    };
- }
+    if (this.x < ctx.canvas.width) {
+        this.x += (this.speed * dt);
+    } else {
+        this.x = -90;
+    }
 
-checkCollision() {
-    // checks if the player entes in collision with enemy
-    if (this.x === player.x & this.y === player.y) {
-        // moves the player back to it's start position
-        player.x = 250;
-        player.y = 498;
-         };
 }
 
 // Draw the enemy on the screen, required method for game
@@ -46,6 +39,9 @@ render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 };
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 // Now write your own player class
 
 class Player {
