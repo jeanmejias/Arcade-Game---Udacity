@@ -43,56 +43,73 @@ function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
   }
 // Now write your own player class
-
-class Player {
-    constructor (sprite, x, y) {
-        this.sprite = sprite;
-        this.x = x;
-        this.y = y;
-    }
-
 // This class requires an update(), render() and
 // a handleInput() method.
-update(dt) {
-        // checks if the player reaches the mountain
-    if (this.y <= 80) {
+class Player {
+    constructor(playerImage,x,y) {
+        this.playerImage = playerImage;
+        this.dt = 0;
+        this.y = y;
+        this.x = x;
+        this.width = 50;
+        this.height = 50;
+
     }
-}
-
- //draws the player on the screen
-render() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
-
-handleInput (keyvalue) {
-    switch (keyvalue) {
-        case 'left' : 
-            this.x -= 101;
-            if (this.x < 1) {
-                this.x = 1;
-            }
-            break;
-        case 'up' :
-            this.y -= 83;
-            if (this.y <= 1) {
-                this.y = 1;
-            }
-            break;
-        case 'right' :
-            this.x += 101;
-            if (this.x > 405) {
-                this.x = 405;
-            }
-            break;
-        case 'down' : 
-            this.y += 83;
-            if (this.y >= 416) {
-                this.y = 416;
-            }
-            break;
+    checkCollisions() {
+        var myplayer = this;
+        allEnemies.forEach(function(enemy) {
+            if (myplayer.x < enemy.x + enemy.width &&
+                myplayer.x + myplayer.width > enemy.x &&
+                myplayer.y < enemy.y + enemy.height &&
+                myplayer.height + myplayer.y > enemy.y) {
+                    myplayer.reset();
+             }
+        });
+    }
+    checkBroder(){
+        if (this.x <0  || this.x >= 450  || this.y >=450)
+        {
+            this.reset();
+        }
+    }
+    checkWin(){
+        if (this.y == -100)
+        {
+            alert("You Win!!!");
+            this.reset();
+        } 
+    }
+    update(dt) {
+        this.checkWin();
+        this.checkBroder();
+        this.checkCollisions();
+    }
+    render() {
+        ctx.drawImage(Resources.get(this.playerImage), this.x, this.y);
+    }
+    reset(){
+        this.x = 200;
+        this.y = 300;
+    }
+    handleInput(pressedKey) {
+            switch (pressedKey) {
+                case 'up':
+                    this.y -= 80;
+                    break;
+                case 'down':
+                    this.y += 80;
+                    break;
+                case 'right':
+                    this.x += 100;
+                    break;
+                default:
+                    this.x -= 100;
+                    break;
+            }   
     }
 
 }
+let player = new Player('images/char-boy.png',200,300);
 
 
 // Now instantiate your objects.
